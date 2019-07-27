@@ -11,6 +11,7 @@ node *anteriorNodo=NULL;
 void insert_node();
 void print_nodes();
 void search_node(int id);
+void del_node_byID(int id);
 int menu();
 
 int main(void){
@@ -75,6 +76,7 @@ void search_node(int id){
       if(actual->dato==id){
           printf("El nodo con ID: %i fue encontrado\n",id);
           printf("Id: %d , Nombre: %s\n",actual->dato,actual->nombre);
+          return;
       }
 
       actual=actual->siguiente;
@@ -86,6 +88,27 @@ void search_node(int id){
   getchar();
   getchar();
 }
+
+void del_node_byID(int id){
+  node *actual= (node *)malloc(sizeof(node));
+  actual=anteriorNodo;
+  if(anteriorNodo!=NULL){
+    while(actual != NULL){
+      if(actual->dato==id){
+          
+          return;
+      }
+
+      actual=actual->siguiente;
+    }
+  }else{
+    printf("El nodo con el ID %i no pude ser encontrado.",id);
+  }
+  printf("Precione una tecla para continuar");
+  getchar();
+  getchar();
+}
+
 
 int menu(){
   system("clear");
